@@ -1,0 +1,127 @@
+|DecodificadorBCD
+BCD_in[0] => Mod0.IN13
+BCD_in[0] => Mod1.IN16
+BCD_in[0] => Mod2.IN19
+BCD_in[0] => Div2.IN19
+BCD_in[1] => Mod0.IN12
+BCD_in[1] => Mod1.IN15
+BCD_in[1] => Mod2.IN18
+BCD_in[1] => Div2.IN18
+BCD_in[2] => Mod0.IN11
+BCD_in[2] => Mod1.IN14
+BCD_in[2] => Mod2.IN17
+BCD_in[2] => Div2.IN17
+BCD_in[3] => Mod0.IN10
+BCD_in[3] => Mod1.IN13
+BCD_in[3] => Mod2.IN16
+BCD_in[3] => Div2.IN16
+BCD_in[4] => Mod0.IN9
+BCD_in[4] => Mod1.IN12
+BCD_in[4] => Mod2.IN15
+BCD_in[4] => Div2.IN15
+BCD_in[5] => Mod0.IN8
+BCD_in[5] => Mod1.IN11
+BCD_in[5] => Mod2.IN14
+BCD_in[5] => Div2.IN14
+BCD_in[6] => Mod0.IN7
+BCD_in[6] => Mod1.IN10
+BCD_in[6] => Mod2.IN13
+BCD_in[6] => Div2.IN13
+BCD_in[7] => Mod0.IN6
+BCD_in[7] => Mod1.IN9
+BCD_in[7] => Mod2.IN12
+BCD_in[7] => Div2.IN12
+BCD_in[8] => Mod0.IN5
+BCD_in[8] => Mod1.IN8
+BCD_in[8] => Mod2.IN11
+BCD_in[8] => Div2.IN11
+BCD_in[9] => Mod0.IN4
+BCD_in[9] => Mod1.IN7
+BCD_in[9] => Mod2.IN10
+BCD_in[9] => Div2.IN10
+D1[6] << Decoder:D1_inst.decoder_out
+D1[5] << Decoder:D1_inst.decoder_out
+D1[4] << Decoder:D1_inst.decoder_out
+D1[3] << Decoder:D1_inst.decoder_out
+D1[2] << Decoder:D1_inst.decoder_out
+D1[1] << Decoder:D1_inst.decoder_out
+D1[0] << Decoder:D1_inst.decoder_out
+D2[6] << Decoder:D2_inst.decoder_out
+D2[5] << Decoder:D2_inst.decoder_out
+D2[4] << Decoder:D2_inst.decoder_out
+D2[3] << Decoder:D2_inst.decoder_out
+D2[2] << Decoder:D2_inst.decoder_out
+D2[1] << Decoder:D2_inst.decoder_out
+D2[0] << Decoder:D2_inst.decoder_out
+D3[6] << Decoder:D3_inst.decoder_out
+D3[5] << Decoder:D3_inst.decoder_out
+D3[4] << Decoder:D3_inst.decoder_out
+D3[3] << Decoder:D3_inst.decoder_out
+D3[2] << Decoder:D3_inst.decoder_out
+D3[1] << Decoder:D3_inst.decoder_out
+D3[0] << Decoder:D3_inst.decoder_out
+D4[6] << Decoder:D4_inst.decoder_out
+D4[5] << Decoder:D4_inst.decoder_out
+D4[4] << Decoder:D4_inst.decoder_out
+D4[3] << Decoder:D4_inst.decoder_out
+D4[2] << Decoder:D4_inst.decoder_out
+D4[1] << Decoder:D4_inst.decoder_out
+D4[0] << Decoder:D4_inst.decoder_out
+
+
+|DecodificadorBCD|Decoder:D1_inst
+decoder_in[0] => Decoder0.IN3
+decoder_in[1] => Decoder0.IN2
+decoder_in[2] => Decoder0.IN1
+decoder_in[3] => Decoder0.IN0
+decoder_out[6] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+decoder_out[5] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+decoder_out[4] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+decoder_out[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+decoder_out[2] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+decoder_out[1] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+decoder_out[0] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DecodificadorBCD|Decoder:D2_inst
+decoder_in[0] => Decoder0.IN3
+decoder_in[1] => Decoder0.IN2
+decoder_in[2] => Decoder0.IN1
+decoder_in[3] => Decoder0.IN0
+decoder_out[6] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+decoder_out[5] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+decoder_out[4] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+decoder_out[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+decoder_out[2] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+decoder_out[1] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+decoder_out[0] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DecodificadorBCD|Decoder:D3_inst
+decoder_in[0] => Decoder0.IN3
+decoder_in[1] => Decoder0.IN2
+decoder_in[2] => Decoder0.IN1
+decoder_in[3] => Decoder0.IN0
+decoder_out[6] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+decoder_out[5] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+decoder_out[4] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+decoder_out[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+decoder_out[2] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+decoder_out[1] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+decoder_out[0] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DecodificadorBCD|Decoder:D4_inst
+decoder_in[0] => Decoder0.IN3
+decoder_in[1] => Decoder0.IN2
+decoder_in[2] => Decoder0.IN1
+decoder_in[3] => Decoder0.IN0
+decoder_out[6] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+decoder_out[5] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+decoder_out[4] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+decoder_out[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+decoder_out[2] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+decoder_out[1] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+decoder_out[0] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+

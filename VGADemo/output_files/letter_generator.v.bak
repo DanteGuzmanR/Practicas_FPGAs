@@ -1,0 +1,93 @@
+module letter_generator(
+    input  [7:0] letter_code,   // Código ASCII de la letra a dibujar
+    input  [9:0] x,             // Coordenada X actual del VGA
+    input  [9:0] y,             // Coordenada Y actual del VGA
+    input  [9:0] base_x,        // Posición X de inicio para esta letra
+    input  [9:0] base_y,        // Posición Y de inicio para esta letra
+    output       pixel          // Salida: 1 si (x,y) pertenece a la letra
+);
+    // Parámetros internos para el tamaño de la letra
+    localparam LETTER_HEIGHT = 200;
+    localparam LETTER_WIDTH  = 60;
+    localparam LINE_WIDTH    = 20;
+
+    reg pix;
+    
+    always @(*) begin
+        // Por defecto, no se dibuja nada
+        pix = 1'b0;
+        case(letter_code)
+            // Letra H (ASCII 0x48)
+            8'h48: begin
+                // Barra vertical izquierda
+                if ((x >= base_x) && (x < base_x + LINE_WIDTH) &&
+                    (y >= base_y) && (y < base_y + LETTER_HEIGHT))
+                    pix = 1'b1;
+                // Barra vertical derecha
+                else if ((x >= base_x + LETTER_WIDTH - LINE_WIDTH) && (x < base_x + LETTER_WIDTH) &&
+                         (y >= base_y) && (y < base_y + LETTER_HEIGHT))
+                    pix = 1'b1;
+                // Barra horizontal central
+                else if ((x >= base_x + LINE_WIDTH) && (x < base_x + LETTER_WIDTH - LINE_WIDTH) &&
+                         (y >= base_y + (LETTER_HEIGHT/2 - LINE_WIDTH/2)) &&
+                         (y < base_y + (LETTER_HEIGHT/2 + LINE_WIDTH/2)))
+                    pix = 1'b1;
+            end
+            // Letra O (ASCII 0x4F)
+            8'h4F: begin
+                // Lado izquierdo
+                if ((x >= base_x) && (x < base_x + LINE_WIDTH) &&
+                    (y >= base_y) && (y < base_y + LETTER_HEIGHT))
+                    pix = 1'b1;
+                // Lado derecho
+                else if ((x >= base_x + LETTER_WIDTH - LINE_WIDTH) && (x < base_x + LETTER_WIDTH) &&
+                         (y >= base_y) && (y < base_y + LETTER_HEIGHT))
+                    pix = 1'b1;
+                // Barra superior
+                else if ((x >= base_x + LINE_WIDTH) && (x < base_x + LETTER_WIDTH - LINE_WIDTH) &&
+                         (y >= base_y) && (y < base_y + LINE_WIDTH))
+                    pix = 1'b1;
+                // Barra inferior
+                else if ((x >= base_x + LINE_WIDTH) && (x < base_x + LETTER_WIDTH - LINE_WIDTH) &&
+                         (y >= base_y + LETTER_HEIGHT - LINE_WIDTH) && (y < base_y + LETTER_HEIGHT))
+                    pix = 1'b1;
+            end
+            // Letra L (ASCII 0x4C)
+            8'h4C: begin
+                // Barra vertical
+                if ((x >= base_x) && (x < base_x + LINE_WIDTH) &&
+                    (y >= base_y) && (y < base_y + LETTER_HEIGHT))
+                    pix = 1'b1;
+                // Barra horizontal inferior
+                else if ((x >= base_x) && (x < base_x + LETTER_WIDTH) &&
+                         (y >= base_y + LETTER_HEIGHT - LINE_WIDTH) && (y < base_y + LETTER_HEIGHT))
+                    pix = 1'b1;
+            end
+            // Letra A (ASCII 0x41)
+            8'h41: begin
+                // Barra vertical izquierda
+                if ((x >= base_x) && (x < base_x + LINE_WIDTH) &&
+                    (y >= base_y) && (y < base_y + LETTER_HEIGHT))
+                    pix = 1'b1;
+                // Barra vertical derecha
+                else if ((x >= base_x + LETTER_WIDTH - LINE_WIDTH) && (x < base_x + LETTER_WIDTH) &&
+                         (y >= base_y) && (y < base_y + LETTER_HEIGHT))
+                    pix = 1'b1;
+                // Barra horizontal superior
+                else if ((x >= base_x + LINE_WIDTH) && (x < base_x + LETTER_WIDTH - LINE_WIDTH) &&
+                         (y >= base_y) && (y < base_y + LINE_WIDTH))
+                    pix = 1'b1;
+                // Barra horizontal central
+                else if ((x >= base_x + LINE_WIDTH) && (x < base_x + LETTER_WIDTH - LINE_WIDTH) &&
+                         (y >= base_y + (LETTER_HEIGHT/2 - LINE_WIDTH/2)) &&
+                         (y < base_y + (LETTER_HEIGHT/2 + LINE_WIDTH/2)))
+                    pix = 1'b1;
+            end
+            // Otros caracteres no se dibujan
+            default: pix = 1'b0;
+        endcase
+    end
+
+    assign pixel = pix;
+
+endmodule

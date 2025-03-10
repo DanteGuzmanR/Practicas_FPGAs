@@ -1,0 +1,17 @@
+module DecodificadorBCD (
+    input wire [9:0] BCD_in,  
+    output reg [0:6] D1,D2,D3,D4
+);
+
+wire [9:0] unidades,decenas,centenas,millares;
+
+    always @ (BCD_in) 
+	 begin
+	 unidades = BCD_in % 10;
+	 decenas = (BCD_in % 100) / 10;
+	 centenas = (BCD_in % 1000) / 100;
+	 millares = BCD_in / 1000;
+	 
+	 
+    end
+endmodule
